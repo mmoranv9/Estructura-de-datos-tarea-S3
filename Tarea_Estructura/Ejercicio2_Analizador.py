@@ -32,3 +32,31 @@ print(analizador.lista)
 
 
 print("Cantidad de palabras únicas:", analizador.contar_palabras())
+
+
+
+#Ejercicio 2 
+class RegistroNombres:
+    def __init__(self):
+        self.nombres = []
+        self.unicos = set()
+
+    def agregar_nombre(self, nombre):
+        self.nombres.append(nombre)
+        self.unicos.add(nombre)
+
+    def contar_nombres(self):
+        return len(self.unicos)
+
+    def agregar_multiples(self, *args):
+        for nombre in args:
+            self.agregar_nombre(nombre)
+
+
+r = RegistroNombres()
+
+r.agregar_multiples("Carlos", "Ana", "Carlos", "Pedro", "Ana", "Luis")
+
+print(r.nombres)
+print(r.unicos)
+print(r.contar_nombres())

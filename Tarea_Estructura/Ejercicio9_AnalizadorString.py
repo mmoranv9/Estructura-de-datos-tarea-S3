@@ -24,3 +24,41 @@ class AnalizadorString:
 astr = AnalizadorString()
 print(astr.contar_por_tipo("Hola123"))
 print("Texto más largo analizado:", astr.texto_mas_largo)
+
+
+#Ejercicio 2
+
+class AnalizadorProductos:
+    def __init__(self):
+        self.precio_mayor = 0
+
+    def es_barato(self, precio):
+        return precio < 20
+
+    def analizar(self, precios):
+        baratos = 0
+        normales = 0
+        caros = 0
+
+        for precio in precios:
+            if precio < 20:
+                baratos += 1
+            elif precio <= 50:
+                normales += 1
+            else:
+                caros += 1
+
+            if precio > self.precio_mayor:
+                self.precio_mayor = precio
+
+        return {
+            "baratos": baratos,
+            "normales": normales,
+            "caros": caros
+        }
+
+
+analizador = AnalizadorProductos()
+
+print(analizador.analizar([15, 30, 60, 10, 45, 80]))
+print("Precio mayor:", analizador.precio_mayor)

@@ -33,3 +33,33 @@ print("Total:", c.total_carrito())
 
 
 print("Artículos en rango:", c.articulos_por_rango(2, 8))
+
+
+#Ejercicio 2
+
+class Restaurante:
+    def __init__(self):
+        self.platos = {}
+
+    def agregar_plato(self, nombre, precio):
+        self.platos[nombre] = precio
+
+    def total_pedido(self):
+        return sum(self.platos.values())
+
+    def platos_por_rango(self, precio_min, precio_max):
+        lista = []
+        for nombre, precio in self.platos.items():
+            if precio_min <= precio <= precio_max:
+                lista.append(nombre)
+        return lista
+
+
+r = Restaurante()
+
+r.agregar_plato("Hamburguesa", 5.00)
+r.agregar_plato("Pizza", 8.00)
+r.agregar_plato("Ensalada", 4.00)
+
+print(r.total_pedido())
+print(r.platos_por_rango(4, 6))

@@ -31,3 +31,36 @@ ap = AnalizadorPatrones()
 print("Palabras que empiezan con 'a':", ap.encontrar_palabras("el gato está aquí ahora", "a"))
 print("Agrupación por longitud:", ap.agrupar_por_longitud("el gato está aquí"))
 print("Palabras únicas analizadas:", ap.palabras_unicas())
+
+
+
+#Ejercicio 2
+class AnalizadorVocales:
+    def contar_vocales(self, texto):
+        conteo = {'a':0, 'e':0, 'i':0, 'o':0, 'u':0}
+        for letra in texto.lower():
+            if letra in conteo:
+                conteo[letra] += 1
+        return conteo
+
+    def palabras_con_vocal(self, vocal, texto):
+        palabras = texto.split()
+        resultado = []
+        for p in palabras:
+            if vocal in p:
+                resultado.append(p)
+        return resultado
+
+    def vocales_unicas(self, texto):
+        conjunto = set()
+        for letra in texto.lower():
+            if letra in "aeiou":
+                conjunto.add(letra)
+        return conjunto
+
+
+av = AnalizadorVocales()
+print(">>> Conteo de vocales:", av.contar_vocales("hola mundo"))
+print(">>> Palabras con 'a':", av.palabras_con_vocal("a", "el gato está aquí"))
+print(">>> Vocales únicas en 'perro':", av.vocales_unicas("perro"))
+
