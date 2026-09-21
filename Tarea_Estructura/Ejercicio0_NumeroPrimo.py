@@ -35,3 +35,40 @@ print(f"Primos en el rango [10-15]: {primos}")
 
 print(f"Historial: {np.historial}")
 print(f"Total verificados: {np.cantidad_verificados()}")
+
+
+
+
+#Ejercicio 2
+class NumeroPar:
+    def __init__(self):
+        self.historial = []
+
+    def es_par(self, numero):
+        self.historial.append(numero)
+        return numero % 2 == 0
+
+    def pares_en_lista(self, *args):
+        pares = []
+        for numero in args:
+            if self.es_par(numero):
+                pares.append(numero)
+        return pares
+
+    def cantidad_verificados(self):
+        return len(self.historial)
+
+    def limpiar_historial(self):
+        self.historial = []
+
+
+np = NumeroPar()
+
+resultado = np.es_par(8)
+print(f"¿8 es par? {resultado}")
+
+pares = np.pares_en_lista(3, 4, 7, 10, 12, 15)
+print(f"Números pares: {pares}")
+
+print(f"Historial: {np.historial}")
+print(f"Total verificados: {np.cantidad_verificados()}")
